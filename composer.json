@@ -1,0 +1,27 @@
+{
+    "name": "linkrobins/markdown-widget",
+    "description": "Markdown widget for fof/forum-widgets-core",
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "flarum/core": "^2.0",
+        "fof/forum-widgets-core": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "LinkRobins\\MarkdownWidget\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Link Robins Markdown",
+            "category": "forum-widget",
+            "icon": {
+                "name": "fab fa-markdown",
+                "color": "#07adcc",
+                "backgroundColor": "#1a2535"
+            }
+        }
+    }
+}

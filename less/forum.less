@@ -1,0 +1,83 @@
+.LinkRobinsMarkdownWidget {
+    .FofWidgets-Widget-content {
+        > *:first-child { margin-top: 0; }
+        > *:last-child  { margin-bottom: 0; }
+
+        h1 { font-size: 1.25rem; }
+        h2 { font-size: 1.1rem; }
+        h3 { font-size: 1rem; }
+        h4, h5, h6 { font-size: 0.95rem; }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0.6em 0 0.3em;
+            line-height: 1.3;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        p {
+            margin: 0 0 0.6em;
+            line-height: 1.5;
+        }
+
+        ul, ol {
+            margin: 0 0 0.6em;
+            padding-left: 1.4em;
+        }
+
+        li { margin: 0.15em 0; }
+
+        a { color: var(--link-color, var(--primary-color)); }
+
+        code {
+            background: var(--code-bg, rgba(127, 127, 127, 0.12));
+            padding: 0.1em 0.35em;
+            border-radius: 3px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.88em;
+        }
+
+        pre {
+            background: var(--code-bg, rgba(127, 127, 127, 0.12));
+            border-radius: 4px;
+            padding: 0.6em 0.8em;
+            overflow-x: auto;
+            margin: 0 0 0.6em;
+
+            code {
+                background: transparent;
+                padding: 0;
+                border-radius: 0;
+                font-size: 0.85em;
+            }
+        }
+
+        blockquote {
+            margin: 0 0 0.6em;
+            padding: 0.2em 0 0.2em 0.8em;
+            border-left: 3px solid var(--control-color);
+            color: var(--muted-color);
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--control-color);
+            margin: 0.8em 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 0 0 0.6em;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid var(--control-color);
+            padding: 0.3em 0.5em;
+            text-align: left;
+        }
+
+        img    { max-width: 100%; height: auto; }
+        iframe { max-width: 100%; }
+    }
+}
