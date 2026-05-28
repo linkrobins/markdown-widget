@@ -16,7 +16,8 @@ Drag and place it from the FoF Forum Widgets admin page like any other widget.
 
 - Flarum **2.0** or later
 - [`fof/forum-widgets-core`](https://packagist.org/packages/fof/forum-widgets-core) installed and enabled
-- Browser must be able to load `cdnjs.cloudflare.com` — the Markdown renderer ([marked.js](https://marked.js.org/)) is loaded from CDN at runtime
+
+The Markdown renderer ([marked](https://marked.js.org/)) and the HTML sanitiser ([DOMPurify](https://github.com/cure53/DOMPurify)) are bundled into the extension — nothing is fetched from a CDN at runtime.
 
 ## Installation
 
@@ -39,13 +40,13 @@ Supports the full Markdown syntax that marked.js handles, including:
 - Blockquotes
 - Tables (GFM)
 - Horizontal rules
-- Inline HTML (passes through unchanged)
+- Inline HTML (sanitised before display)
 
 The widget styles headings, lists, code, blockquotes, and tables to fit cleanly in any placement.
 
 ## Security note
 
-The body is rendered without sanitization — inline HTML in the Markdown source will run on the forum, including any `<script>` or `<iframe>` tags. Only enable this extension if you trust everyone with admin access.
+The rendered HTML is passed through [DOMPurify](https://github.com/cure53/DOMPurify) before display, so `<script>` tags, event-handler attributes, and other unsafe markup in the Markdown body are stripped. The body is still admin-only — treat it like any other admin-controlled content.
 
 ## License
 
