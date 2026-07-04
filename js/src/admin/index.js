@@ -24,27 +24,26 @@ app.initializers.add('linkrobins-markdown-widget', () => {
       placeholder: 'fab fa-markdown',
     })
 
-    .registerSetting(function () {
-      const value = this.setting('linkrobins-markdown-widget.body', '');
+    .registerSetting(
+      function () {
+        const value = this.setting('linkrobins-markdown-widget.body', '');
 
-      return m(
-        'div',
-        { className: 'Form-group' },
-        m('label', app.translator.trans('linkrobins-markdown-widget.admin.settings.body_label')),
-        m('textarea', {
-          className: 'FormControl',
-          rows: 14,
-          value: value(),
-          oninput: (e) => value(e.target.value),
-          placeholder: '# Hello\n\nWrite **markdown** here.',
-          style:
-            'font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.85rem;',
-        }),
-        m(
-          'p',
-          { className: 'helpText' },
-          app.translator.trans('linkrobins-markdown-widget.admin.settings.body_help')
-        )
-      );
-    }, 0, 'linkrobins-markdown-widget.body');
+        return m(
+          'div',
+          { className: 'Form-group' },
+          m('label', app.translator.trans('linkrobins-markdown-widget.admin.settings.body_label')),
+          m('textarea', {
+            className: 'FormControl',
+            rows: 14,
+            value: value(),
+            oninput: (e) => value(e.target.value),
+            placeholder: '# Hello\n\nWrite **markdown** here.',
+            style: 'font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.85rem;',
+          }),
+          m('p', { className: 'helpText' }, app.translator.trans('linkrobins-markdown-widget.admin.settings.body_help'))
+        );
+      },
+      0,
+      'linkrobins-markdown-widget.body'
+    );
 });
