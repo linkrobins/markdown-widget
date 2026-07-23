@@ -1,5 +1,12 @@
 .LinkRobinsMarkdownWidget {
     .FofWidgets-Widget-content {
+        // Optional admin background color; falls back to the theme's default
+        // widget background (fof's own value) when none is set. When a color is
+        // set, text switches to a contrasting shade (see makeMarkdownWidget) so
+        // it stays readable on any theme; otherwise it follows the theme.
+        background: var(--lrmw-bg, var(--control-bg));
+        color: var(--lrmw-fg, inherit);
+
         // Scale the rendered markdown with linkrobins/font-sizer (no-op at the
         // default size). Body text and em-based code scale from here; the rem
         // headings are scaled individually below.
@@ -17,7 +24,8 @@
             margin: 0.6em 0 0.3em;
             line-height: 1.3;
             font-weight: 600;
-            color: var(--text-color);
+            // Contrast color when an admin background is set, else theme color.
+            color: var(--lrmw-fg, var(--text-color));
         }
 
         p {
@@ -61,7 +69,8 @@
             margin: 0 0 0.6em;
             padding: 0.2em 0 0.2em 0.8em;
             border-left: 3px solid var(--control-color);
-            color: var(--muted-color);
+            // Contrast color when an admin background is set, else the muted theme color.
+            color: var(--lrmw-fg, var(--muted-color));
         }
 
         hr {
@@ -84,5 +93,11 @@
 
         img    { max-width: 100%; height: auto; }
         iframe { max-width: 100%; }
+    }
+
+    // fof's "flat" placement makes the content box transparent; keep that
+    // default when no color is chosen, but still honor an explicit one.
+    &.FofWidgets-Widget--flat .FofWidgets-Widget-content {
+        background: var(--lrmw-bg, transparent);
     }
 }

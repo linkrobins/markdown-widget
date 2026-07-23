@@ -21,7 +21,7 @@
     },
     "extra": {
         "flarum-extension": {
-            "title": "Link Robins Markdown",
+            "title": "Link Robins Markdown Widget",
             "category": "forum-widget",
             "icon": {
                 "name": "fab fa-markdown",
