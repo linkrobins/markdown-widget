@@ -2,6 +2,8 @@
     "name": "linkrobins/markdown-widget",
     "description": "Markdown widget for fof/forum-widgets-core",
     "type": "flarum-extension",
+    "keywords": ["flarum", "widget", "markdown", "forum-widgets"],
+    "homepage": "https://linkrobins.com/extensions/markdown-widget",
     "license": "MIT",
     "authors": [
         {
