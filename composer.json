@@ -2,12 +2,21 @@
     "name": "linkrobins/markdown-widget",
     "description": "Markdown widget for fof/forum-widgets-core",
     "type": "flarum-extension",
-    "keywords": ["flarum", "widget", "markdown", "forum-widgets"],
+    "keywords": [
+        "flarum",
+        "widget",
+        "markdown",
+        "forum-widgets"
+    ],
+    "support": {
+        "issues": "https://github.com/linkrobins/markdown-widget/issues",
+        "source": "https://github.com/linkrobins/markdown-widget"
+    },
     "homepage": "https://linkrobins.com/extensions/markdown-widget",
     "license": "MIT",
     "authors": [
         {
-            "name": "Karl Bullock",
+            "name": "Link Robins",
             "email": "karl@linkrobins.com"
         }
     ],
