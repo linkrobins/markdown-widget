@@ -106,14 +106,25 @@ export default function makeMarkdownWidget(Widget) {
       const bg = this.data.backgroundColor || '';
       if (node && node.attrs && /^#(?:[0-9a-f]{3}|[0-9a-f]{6})$/i.test(bg)) {
         const fg = readableTextColor(bg);
-        const decl = '--lrmw-bg: ' + bg + '; --lrmw-fg: ' + fg;
+        // Code and links follow the contrasting text color too: the theme's
+        // code background and link color are picked for the theme's own
+        // background, so on a dark admin color they left inline code as white
+        // on near-white and links hard to read. Links get an underline because
+        // they now share the text color.
+        const vars = {
+          '--lrmw-bg': bg,
+          '--lrmw-fg': fg,
+          '--lrmw-code-bg': fg === '#ffffff' ? 'rgba(255, 255, 255, 0.16)' : 'rgba(0, 0, 0, 0.08)',
+          '--lrmw-link': fg,
+          '--lrmw-link-decoration': 'underline',
+        };
+        const decl = Object.keys(vars)
+          .map((key) => key + ': ' + vars[key])
+          .join('; ');
         const style = node.attrs.style;
         if (style == null) node.attrs.style = decl;
         else if (typeof style === 'string') node.attrs.style = style.replace(/;\s*$/, '') + '; ' + decl;
-        else {
-          style['--lrmw-bg'] = bg;
-          style['--lrmw-fg'] = fg;
-        }
+        else Object.assign(style, vars);
       }
 
       return node;

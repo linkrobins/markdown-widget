@@ -40,10 +40,15 @@
 
         li { margin: 0.15em 0; }
 
-        a { color: var(--link-color, var(--primary-color)); }
+        // With an admin background color, links take the contrasting text color
+        // and an underline (see makeMarkdownWidget); otherwise the theme's.
+        a {
+            color: var(--lrmw-link, var(--link-color, var(--primary-color)));
+            text-decoration: var(--lrmw-link-decoration, none);
+        }
 
         code {
-            background: var(--code-bg, rgba(127, 127, 127, 0.12));
+            background: var(--lrmw-code-bg, var(--code-bg, rgba(127, 127, 127, 0.12)));
             padding: 0.1em 0.35em;
             border-radius: 3px;
             font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -51,7 +56,7 @@
         }
 
         pre {
-            background: var(--code-bg, rgba(127, 127, 127, 0.12));
+            background: var(--lrmw-code-bg, var(--code-bg, rgba(127, 127, 127, 0.12)));
             border-radius: 4px;
             padding: 0.6em 0.8em;
             overflow-x: auto;
