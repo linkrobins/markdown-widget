@@ -7,6 +7,7 @@ A simple Markdown widget for [Flarum 2.0](https://flarum.org), built as a widget
 Adds one configurable Markdown widget to the FoF Forum Widgets placement editor. Admin sets:
 
 - **Title** — optional, shown above the body
+- **Description**: optional small text under the title
 - **Icon** — FontAwesome class (e.g. `fab fa-markdown`)
 - **Markdown body** — standard GitHub-flavored Markdown, rendered to HTML on the client
 
@@ -19,6 +20,7 @@ Configured in **Admin → Extensions → Link Robins Markdown Widget**, then pla
 | Setting | Required | What it does |
 |---|---|---|
 | Title | no | Shown above the body. Leave blank for a widget with no header. |
+| Description | no | Small text under the title, in the same style as other FoF widgets' descriptions. |
 | Icon class | no | A FontAwesome class rendered beside the title, e.g. `fab fa-markdown`. Leave blank for no icon. |
 | Markdown body | yes | GitHub-flavored Markdown. Inline HTML is allowed but sanitised. |
 | Background color | no | The widget's background. Leave blank to follow your theme, which is what keeps it looking native in both light and dark mode. |

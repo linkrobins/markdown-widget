@@ -25,6 +25,7 @@ class ShowWidgetTest extends TestCase
     public function guests_get_the_configured_content(): void
     {
         $this->setting('linkrobins-markdown-widget.title', 'Welcome');
+        $this->setting('linkrobins-markdown-widget.description', 'Read first');
         $this->setting('linkrobins-markdown-widget.icon', 'fas fa-star');
         $this->setting('linkrobins-markdown-widget.body', '<p>Hello</p>');
         $this->setting('linkrobins-markdown-widget.backgroundColor', '#ff8800');
@@ -35,7 +36,7 @@ class ShowWidgetTest extends TestCase
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertEquals(
-            ['title' => 'Welcome', 'icon' => 'fas fa-star', 'body' => '<p>Hello</p>', 'backgroundColor' => '#ff8800'],
+            ['title' => 'Welcome', 'description' => 'Read first', 'icon' => 'fas fa-star', 'body' => '<p>Hello</p>', 'backgroundColor' => '#ff8800'],
             json_decode($response->getBody()->getContents(), true)
         );
         $this->assertEquals(
@@ -53,7 +54,7 @@ class ShowWidgetTest extends TestCase
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertEquals(
-            ['title' => '', 'icon' => '', 'body' => '', 'backgroundColor' => ''],
+            ['title' => '', 'description' => '', 'icon' => '', 'body' => '', 'backgroundColor' => ''],
             json_decode($response->getBody()->getContents(), true)
         );
     }
