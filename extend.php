@@ -19,6 +19,7 @@ return [
             $settings = resolve(SettingsRepositoryInterface::class);
             $document->payload['linkrobins-markdown-widget.rev'] = substr(sha1(
                 $settings->get('linkrobins-markdown-widget.title', '') . '|' .
+                $settings->get('linkrobins-markdown-widget.description', '') . '|' .
                 $settings->get('linkrobins-markdown-widget.icon', '') . '|' .
                 $settings->get('linkrobins-markdown-widget.body', '') . '|' .
                 $settings->get('linkrobins-markdown-widget.backgroundColor', '')
@@ -37,6 +38,7 @@ return [
 
     (new Extend\Settings())
         ->default('linkrobins-markdown-widget.title', '')
+        ->default('linkrobins-markdown-widget.description', '')
         ->default('linkrobins-markdown-widget.icon',  '')
         ->default('linkrobins-markdown-widget.body',  '')
         ->default('linkrobins-markdown-widget.backgroundColor', ''),
