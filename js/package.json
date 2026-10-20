@@ -5,7 +5,8 @@
         "dev": "webpack --mode development --watch",
         "build": "webpack --mode production",
         "format": "prettier --write src",
-        "format-check": "prettier --check src"
+        "format-check": "prettier --check src",
+        "check-typings": "tsc --noEmit"
     },
     "dependencies": {
         "dompurify": "^3.4.7",
