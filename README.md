@@ -1,6 +1,6 @@
 # Link Robins Markdown Widget
 
-A simple Markdown widget for [Flarum 2.0](https://flarum.org), built as a widget for [`fof/forum-widgets-core`](https://packagist.org/packages/fof/forum-widgets-core). Same skeleton as [`linkrobins/html-widget`](https://packagist.org/packages/linkrobins/html-widget), with a Markdown renderer in front of the body.
+A simple Markdown widget for [Flarum 2.0](https://flarum.org), built as a widget for [`fof/forum-widgets-core`](https://packagist.org/packages/fof/forum-widgets-core). If you would rather write raw HTML, see [`linkrobins/html-widget`](https://packagist.org/packages/linkrobins/html-widget).
 
 ## What it does
 
@@ -15,25 +15,25 @@ Drag and place it from the FoF Forum Widgets admin page like any other widget.
 
 ## Settings
 
-Configured in **Admin → Extensions → Link Robins Markdown Widget**, then placed from the FoF Forum Widgets page.
+Configured in **the admin panel's Extensions page → LR Markdown Widget**, then placed from the FoF Forum Widgets page.
 
 | Setting | Required | What it does |
 |---|---|---|
 | Title | no | Shown above the body. Leave blank for a widget with no header. |
 | Description | no | Small text under the title, in the same style as other FoF widgets' descriptions. |
 | Icon class | no | A FontAwesome class rendered beside the title, e.g. `fab fa-markdown`. Leave blank for no icon. |
-| Markdown body | yes | GitHub-flavored Markdown. Inline HTML is allowed but sanitised. |
+| Markdown body | yes | GitHub-flavored Markdown. Inline HTML is allowed but sanitized. |
 | Background color | no | The widget's background. Leave blank to follow your theme, which is what keeps it looking native in both light and dark mode. |
 
 ## How a change reaches readers
 
 The body is not baked into the forum's boot payload. It is fetched from its own endpoint on demand, and only a short hash of the current settings rides along in the payload.
 
-That hash is what makes an edit show up: changing any setting changes the hash, which changes the fetch URL, so a normal page reload picks up the new content. Readers do not need a hard refresh, and unchanged content still caches normally rather than being re-fetched on every page view.
+That hash is what makes an edit show up: changing any setting changes the hash, which changes the fetch URL, so a normal page reload picks up the new content. Readers do not need a hard refresh, and unchanged content is cached for a few minutes rather than being re-fetched on every page view.
 
 ## Private forums
 
-If guests can't view your forum, they don't get the widget's content either: it is only sent to visitors who can view the forum, the same as your discussions.
+If guests can't view your forum, they don't get the widget's content either: it is only sent to visitors who can view the forum, the same as your discussions. There are no permissions of its own to set.
 
 ## What it does NOT do
 
@@ -46,16 +46,17 @@ If guests can't view your forum, they don't get the widget's content either: it 
 - Flarum **2.0** or later
 - [`fof/forum-widgets-core`](https://packagist.org/packages/fof/forum-widgets-core) installed and enabled
 
-The Markdown renderer ([marked](https://marked.js.org/)) and the HTML sanitiser ([DOMPurify](https://github.com/cure53/DOMPurify)) are bundled into the extension — nothing is fetched from a CDN at runtime.
+The Markdown renderer ([marked](https://marked.js.org/)) and the HTML sanitizer ([DOMPurify](https://github.com/cure53/DOMPurify)) are bundled into the extension — nothing is fetched from a CDN at runtime.
 
 ## Installation
 
-```
+```sh
 composer require linkrobins/markdown-widget
-php flarum cache:clear
 ```
 
-In Flarum admin → **Extensions**, find **Link Robins Markdown** under the **Forum Widgets** category and enable it. Configure title/icon/body, then go to FoF Forum Widgets settings and place it where you want it.
+In the admin panel's **Extensions** page, find **LR Markdown Widget** under the **Forum Widgets** category and switch it on. Configure title/icon/body, then go to FoF Forum Widgets settings and place it where you want it.
+
+To update later: `composer update linkrobins/markdown-widget`, then `php flarum cache:clear`.
 
 ## Markdown features
 
@@ -69,7 +70,7 @@ Supports the full Markdown syntax that marked.js handles, including:
 - Blockquotes
 - Tables (GFM)
 - Horizontal rules
-- Inline HTML (sanitised before display)
+- Inline HTML (sanitized before display)
 
 The widget styles headings, lists, code, blockquotes, and tables to fit cleanly in any placement.
 
